@@ -12,5 +12,4 @@
 @property(nonatomic, copy)void(^addInfoBlock)();
 @property(nonatomic, strong)UIView *xxx;
 
-+ (instancetype)setupFooterView;
 @end

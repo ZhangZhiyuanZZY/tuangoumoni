@@ -20,7 +20,6 @@
 		188A803D1C60601C00D04765 /* ZYFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A803C1C60601C00D04765 /* ZYFooterView.m */; };
 		188A80401C607BC700D04765 /* ZYTg.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A803F1C607BC700D04765 /* ZYTg.m */; };
 		188A80431C607FF700D04765 /* ZYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A80421C607FF700D04765 /* ZYTableViewCell.m */; };
-		188A80451C608D8D00D04765 /* ZYFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188A80441C608D8C00D04765 /* ZYFooterView.xib */; };
 		C3CD72F3A1456DBD64D58AB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D719AF3D83FDBCDC9FFDCD97 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		188A803F1C607BC700D04765 /* ZYTg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTg.m; sourceTree = "<group>"; };
 		188A80411C607FF700D04765 /* ZYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTableViewCell.h; sourceTree = "<group>"; };
 		188A80421C607FF700D04765 /* ZYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTableViewCell.m; sourceTree = "<group>"; };
-		188A80441C608D8C00D04765 /* ZYFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYFooterView.xib; sourceTree = "<group>"; };
 		59F6D6BC76B84EC200CF09FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D2B2F6D7AEBD187C892268A3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D719AF3D83FDBCDC9FFDCD97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +134,6 @@
 				188A80391C605FA100D04765 /* ZYHeaderView.m */,
 				188A803B1C60601C00D04765 /* ZYFooterView.h */,
 				188A803C1C60601C00D04765 /* ZYFooterView.m */,
-				188A80441C608D8C00D04765 /* ZYFooterView.xib */,
 				1823A18B1C5F61BA002854B2 /* Main.storyboard */,
 				1823A1821C5F61BA002854B2 /* Supporting Files */,
 			);
@@ -300,7 +297,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				188A80451C608D8D00D04765 /* ZYFooterView.xib in Resources */,
 				1823A1921C5F61BA002854B2 /* LaunchScreen.storyboard in Resources */,
 				1823A1B61C5F645D002854B2 /* tgs.plist in Resources */,
 				1823A18F1C5F61BA002854B2 /* Assets.xcassets in Resources */,

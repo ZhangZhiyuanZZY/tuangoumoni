@@ -11,6 +11,7 @@
 #import "ZYTg.h"
 #import "ZYTableViewCell.h"
 #import "ZYFooterView.h"
+
 // 自动装箱,把基本类型的数据转换成对象
 //define this constant if you want to enable auto-boxing for default syntax
 #define MAS_SHORTHAND_GLOBALS
@@ -29,7 +30,7 @@
 //商家栏
 @property(nonatomic, strong)UITableView *tableView;
 //加载更多
-@property(nonatomic, strong)UIView *footerView;
+@property(nonatomic, strong)ZYFooterView *footerView;
 //模型数组
 @property(nonatomic, strong)NSMutableArray *tgs;
 
@@ -60,25 +61,21 @@
 
 - (void)addInfo
 {
-    ZYFooterView *footerView = [[ZYFooterView alloc]init];
-    
-    
-//    self.footerView.addInfoBlock = ^{
-//        //1. 向模型数组中添加一条数据
-//        ZYTg *tg = [[ZYTg alloc]init];
-//        tg.icon = @"5ee372ff039073317a49af5442748071.png";
-//        tg.buyCount = @"1000";
-//        tg.price = @"200";
-//        tg.title = @"四川蛋蛋面";
-//        [self.tgs addObject:tg];
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.tgs.count - 1 inSection:0];
-//        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-//        
-//        //2.将插入的那行滚动到一个不错的位置
-//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-//    };
-    
-   
+    __weak typeof(self) weakSelf = self;
+    self.footerView.addInfoBlock= ^{
+        //1. 向模型数组中添加一条数据
+        ZYTg *tg = [[ZYTg alloc]init];
+        tg.icon = @"5ee372ff039073317a49af5442748071.png";
+        tg.buyCount = @"1000";
+        tg.price = @"200";
+        tg.title = @"四川蛋蛋面";
+        [weakSelf.tgs addObject:tg];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.tgs.count - 1 inSection:0];
+        [weakSelf.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        //2.将插入的那行滚动到一个不错的位置
+        [weakSelf.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    };
 }
 
 //隐藏状态栏
@@ -122,8 +119,13 @@
 - (UIView *)footerView
 {
     if (!_footerView) {
-        _footerView = [[NSBundle mainBundle]loadNibNamed:@"ZYFooterView" owner:nil options:nil].lastObject;        self.footerView = _footerView;
+        CGFloat x = 0;
+        CGFloat y = 0;
+        CGFloat w = ZYSIZE.width;
+        CGFloat h = ZYSIZE.height * 0.1;
+        _footerView = [[ZYFooterView alloc]initWithFrame:CGRectMake(x, y, w, h)];
         
+        self.footerView = _footerView;
         [self.view addSubview:_footerView];
     }
     return _footerView;
