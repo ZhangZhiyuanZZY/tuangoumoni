@@ -41,9 +41,8 @@
 {
     [self.moreInfoBtn addTarget:self action:@selector(moreInfoClick) forControlEvents:UIControlEventTouchUpInside];
     [self.moreInfoBtn setTitle:@"绝对没有空的!" forState:UIControlStateNormal];
-//    self.loadingView.backgroundColor = [UIColor blueColor];
-//    self.moreInfoBtn.hidden = YES;
     self.loadingView.hidden = YES;
+ 
     UIActivityIndicatorView *active = [[UIActivityIndicatorView alloc]init];
     self.active = active;
     active.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
@@ -55,8 +54,6 @@
         make.centerY.equalTo(self.loadingView);
         make.left.equalTo(self.loadingView.left).offset(20);
     }];
-    active.hidden = NO;
-    NSLog(@"%@", active);
     
     UILabel *loadingLb = [[UILabel alloc]init];
     loadingLb.text = @"偶尔有个空的也情有可原ing";
@@ -74,7 +71,8 @@
 {
     self.moreInfoBtn.hidden = YES;
     self.loadingView.hidden = NO;
-    
+    [self.active startAnimating];
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //向tableView中插入一条数据
         if (self.addInfoBlock) {
@@ -83,9 +81,7 @@
 
         self.moreInfoBtn.hidden = NO;
         self.loadingView.hidden = YES;
-         [self.active startAnimating];
-    });
-    [self.active stopAnimating];
+             });
 }
 
 #pragma mark - 懒加载
